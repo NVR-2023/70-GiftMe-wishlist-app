@@ -1,4 +1,4 @@
-// THIS FILE IS TO INITIALIZE THE SERVER WITH EXPRESS
+/// THIS FILE IS TO INITIALIZE THE SERVER WITH EXPRESS
 import express from 'express'
 import { PrismaClient } from '@prisma/client'
 import { createClient } from '@supabase/supabase-js'
