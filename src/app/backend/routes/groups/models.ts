@@ -2,24 +2,27 @@ import { PrismaClient } from "@prisma/client/extension";
 
 const prisma = new PrismaClient();
 
-export type GroupDataType = {
+export type CreateGroupProps = {
   groupName: String;
-  createdBy: string;
   createdById: String;
-  groupMembers: [];
+  isActive: boolean;
+  groupMembers?: [];
 };
 
 export const CreateGroup = {
-  createUser: async (groupData: GroupDataType) => {
+  createUser: async (groupData: CreateGroupProps) => {
     try {
-      const newGroup = await prisma.userProfile.create({
+      const newGroup = await prisma.group.create({
         data: {
-         
+          groupName: groupData.groupName,
+          createdById: groupData.createdById,
+          isActive: groupData.isActive,
+          groupMembers: groupData.groupMembers,
         },
       });
       return newGroup;
     } catch (error) {
-      throw new Error("Failed to create user");
+      throw new Error("Failed to create Group");
     }
   },
 };

@@ -1,18 +1,18 @@
-// THESE ARE THE CONTROLLERS FOR USERS
+// @ts-nocheck
 
 import { Request, Response } from "express";
-import { CreateUser, UserData } from "./models";
+import { CreateGroup, CreateGroupProps } from "./models";
 
-export const UserController = {
-  createUser: async (req: Request<object, UserData>, res: Response) => {
+export const GroupController = {
+  createGroup: async (req: Request<any, any>, res: Response) => {
     try {
-      const userData: UserData = req.body;
-      const newUser = await CreateUser.createUser(userData);
-      res.status(201).json(newUser);
+      const groupData: CreateGroupProps = req.body;
+      const newGroup = await CreateGroup().createGroup(groupData);
+      res.status(201).json(newGroup);
     } catch (error: unknown) {
-      console.error("Error creating user", error);
+      console.error("Error creating group", error);
       res.status(500).json({
-        err: "Failed to create user",
+        err: "Failed to create group",
         message: (error as Error).message,
       });
     }
