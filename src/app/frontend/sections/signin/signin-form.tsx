@@ -3,10 +3,10 @@
 import { emailErrors, passwordErrors } from "../register/sub-components/credentials-errors";
 import { useState, ChangeEvent, FormEvent } from "react";
 import Link from "next/link";
-// import PasswordInvisibleIcon from "@/frontend/components/icons/password-invisible-icon";
-// import PasswordVisibleIcon from "@/frontend/components/icons/password-visible-icon";
-// import GoogleIcon from "@/frontend/components/icons/google-icon";
-// import FacebookIcon from "@/frontend/components/icons/facebook-icon";
+import PasswordInvisibleIcon from "../../components/icons/password-invisible-icon";
+import PasswordVisibleIcon from "../../components/icons/password-visible-icon";
+import GoogleIcon from "../../components/icons/google-icon";
+import FacebookIcon from "../../components/icons/facebook-icon";
 
 interface SigninFormProps {
   email: string;
@@ -94,13 +94,13 @@ const SigninForm: React.FC<SigninFormProps> = ({ email, setEmail, password, setP
             <label htmlFor="email" className="text-sm font-semibold">
               Password
             </label>
-            {/* <span onClick={handleTogglePasswordVisibility}>
+            <span onClick={handleTogglePasswordVisibility}>
               {isPasswordVisible ? (
                 <PasswordVisibleIcon scale={0.75} />
               ) : (
                 <PasswordInvisibleIcon scale={0.75} />
               )}
-            </span> */}
+            </span>
           </div>
           <input
             className="rounded bg-orange-100 h-8 ps-2 focus:outline-none focus:border-purple-700 focus:ring-purple-700 focus:ring-[1px]"
@@ -120,10 +120,10 @@ const SigninForm: React.FC<SigninFormProps> = ({ email, setEmail, password, setP
             <div className="text-[0.6rem] font-semibold pe-2">Sign in with</div>
             <div className="flex space-x-2">
               <div className="">
-                {/* <GoogleIcon scale={0.36} /> */}
+                <GoogleIcon scale={0.36} />
               </div>
               <div className="">
-                {/* <FacebookIcon scale={0.75} /> */}
+                <FacebookIcon scale={0.75} />
               </div>
             </div>
           </div>

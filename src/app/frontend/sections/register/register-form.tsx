@@ -99,7 +99,7 @@ const RegisterForm = () => {
             id="email"
             name="email"
             value={credentials.email}
-            onChange={handleInputChange}></input>
+            onChange={handleInputChange}/>
           <div
             className={`${
               credentialsErrors.email ? "visible" : "invisible"
@@ -127,7 +127,7 @@ const RegisterForm = () => {
             name="password"
             type={isPasswordVisible ? "text" : "password"}
             value={credentials.password}
-            onChange={handleInputChange}></input>
+            onChange={handleInputChange}/>
           <div
             className={`${
               credentialsErrors.password ? "visible" : "invisible"

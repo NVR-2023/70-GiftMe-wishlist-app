@@ -3,17 +3,20 @@ import express from 'express'
 import { PrismaClient } from '@prisma/client'
 import { createClient } from '@supabase/supabase-js'
 import dotenv from 'dotenv'
+import cors from 'cors'
 
 // Load environment variables
 dotenv.config()
 
-// Define interface for user profile data
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 4000
 const databaseURL = process.env.DATABASE_URL
 const URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 const supabase = createClient(URL, anonKey)
+
+// Enable CORS for all routes, CHANGE THIS LATER TO SERVE THE URL
+app.use(cors())
 
 // Check if DATABASE_URL is defined
 if (!databaseURL) {
@@ -128,6 +131,12 @@ app.post('/api/create-user', async (req, res) => {
 //   }
 // });
 
+// // Route handler for Next.js pages
+// app.all('*', (req, res) => {
+//   return handle(req, res)
+// })
+
 app.listen(port, () => {
   console.log(`Server is listening on port ${port}`)
 })
+// })
