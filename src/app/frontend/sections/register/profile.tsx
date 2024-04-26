@@ -1,8 +1,8 @@
 // Page to create a new user
-
 import { useState } from 'react'; 
 import axios from 'axios'; 
 
+const API_BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:4000' : 'https://your-production-backend-url.com';
 
 export default function CreateUserPage() {
   const [userData, setUserData] = useState({
@@ -18,7 +18,7 @@ export default function CreateUserPage() {
 
   const createUser = async () => {
     try {
-      const response = await axios.post('http://localhost:4000/api/create-user', userData)
+      const response = await axios.post(`${API_BASE_URL}/api/create-user`, userData)
       console.log('UserData:', userData )
       console.log('User created succesfully', response)
     }
