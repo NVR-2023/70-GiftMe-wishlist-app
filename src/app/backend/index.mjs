@@ -15,7 +15,7 @@ const URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 const supabase = createClient(URL, anonKey)
 
-// Enable CORS for all routes, CHANGE THIS LATER TO SERVE THE URL
+// Enable CORS
 app.use(cors())
 
 // Check if DATABASE_URL is defined
@@ -70,6 +70,7 @@ app.post('/api/signup', async (req, res) => {
 // CREATE NEW USER ROUTE
 app.post('/api/create-user', async (req, res) => {
   try {
+    console.log('Creating new user:', res)
     const userData = req.body
 
     // Retrieve the user data from localStorage
