@@ -15,7 +15,6 @@ const URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 const supabase = createClient(URL, anonKey)
 
-// Enable CORS
 app.use(cors())
 
 // Check if DATABASE_URL is defined
