@@ -119,7 +119,7 @@ export default function CreateUserPage() {
         value={userData.secondaryAddress} 
         onChange={handleInputChange} 
       />
-      <button type="submit">Create User</button>
+      <button type="submit" className="active:bg-red-500 active:text-blue-200">Create User</button>
     </form>
   )
 }
