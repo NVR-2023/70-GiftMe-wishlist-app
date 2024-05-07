@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { login, signup } from './action';
+import { login, signup } from './actions';
 
 export default function LoginPage() {
   const [formData, setFormData] = useState(new FormData());
