@@ -3,4 +3,5 @@
 
 import LoginPage from '../../frontend/sections/login/page';
 
+
 export default LoginPage;
