@@ -1,3 +1,4 @@
+// Private page 
 import { redirect } from 'next/navigation'
 
 import { createClient } from '@/utils/supabase/server'
