@@ -2,7 +2,7 @@
 
 import { emailErrors, passwordErrors } from "../register/sub-components/credentials-errors";
 import { useState, ChangeEvent, FormEvent } from "react";
-import { login, signup } from './actions';
+import { login } from './actions';
 import Link from "next/link";
 import PasswordInvisibleIcon from "../../components/icons/password-invisible-icon";
 import PasswordVisibleIcon from "../../components/icons/password-visible-icon";
@@ -11,13 +11,10 @@ import FacebookIcon from "../../components/icons/facebook-icon";
 
 interface SigninFormProps {
   email: string;
-  setEmail: React.Dispatch<React.SetStateAction<string>>;
   password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  submitLogin: (email: string, password: string) => void;
 }; 
 
-const SigninForm: React.FC<SigninFormProps> = ({ email, setEmail, password, setPassword, submitLogin }) => {
+const SigninForm: React.FC<SigninFormProps> = ({ email, password }) => {
   const [formData, setFormData] = useState(new FormData());
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [credentialsErrors, setCredentialsErrors] = useState({
@@ -38,45 +35,15 @@ const SigninForm: React.FC<SigninFormProps> = ({ email, setEmail, password, setP
   const handleLogin = () => {
     login(formData);
   };
-  
-  const handleSignup = () => {
-    signup(formData);
-  };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>, handleLogin: () => void) => {
     event.preventDefault();
-    submitLogin(email, password)
-    
-    let emailFirstError: string = "";
-    let passwordFirstError: string = "";
-
-    for (const { regEx, message } of emailErrors) {
-      if (!regEx.test(email)) {
-        emailFirstError = message;
-        break;
-      }
-    }
-
-    for (const { regEx, message } of passwordErrors) {
-      if (!regEx.test(password)) {
-        passwordFirstError = message;
-        break;
-      }
-    }
-
-    // Replace alert with API call for sign in
-    if (!emailFirstError && !passwordFirstError) {
-      alert("Credentials validated");
-      setCredentialsErrors({ email: "", password: "" });
-    } else {
-      setCredentialsErrors({ email: emailFirstError, password: passwordFirstError });
-    }
-  };
-
+    handleLogin()
+  }
   
   return (
     <div className="text-purple-700">
-      <form className="flex flex-col space-y-2" onSubmit={handleSubmit}>
+      <form className="flex flex-col space-y-2" onSubmit={(event) => handleSubmit(event, handleLogin)}>
         <div className="font-bold text-3xl mb-7">Login</div>
         <div className="flex flex-col">
           <label htmlFor="email" className="text-sm font-semibold mb-0.5">
@@ -138,9 +105,8 @@ const SigninForm: React.FC<SigninFormProps> = ({ email, setEmail, password, setP
         </div>
         <div className="flex pt-8 space-x-4">
         <button
-            type="button"
-            className="w-36 h-8 rounded bg-purple-700 text-orange-400 text-sm tracking-wide"
-            onClick={handleLogin}>
+            type="submit"
+            className="w-36 h-8 rounded bg-purple-700 text-orange-400 text-sm tracking-wide">
             Login
           </button>
           <br></br>
