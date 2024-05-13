@@ -23,3 +23,4 @@ export type scrappedProductDetailsResult = {
   deliveryTime?: string,
   imageUrl?: string
 };
+
