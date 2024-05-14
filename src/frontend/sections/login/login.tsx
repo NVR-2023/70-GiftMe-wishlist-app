@@ -8,13 +8,9 @@ import PasswordInvisibleIcon from "../../components/icons/password-invisible-ico
 import PasswordVisibleIcon from "../../components/icons/password-visible-icon";
 import GoogleIcon from "../../components/icons/google-icon";
 import FacebookIcon from "../../components/icons/facebook-icon";
+import { LoginFormProps } from "@/types/types";
 
-interface SigninFormProps {
-  email: string;
-  password: string;
-}; 
-
-const SigninForm: React.FC<SigninFormProps> = ({ email, password }) => {
+const SigninForm: React.FC<LoginFormProps> = ({ email, password }) => {
   const [formData, setFormData] = useState(new FormData());
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [credentialsErrors, setCredentialsErrors] = useState({
