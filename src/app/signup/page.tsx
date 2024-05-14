@@ -1,5 +1,3 @@
-"use client"; 
-
 import SignUpForm from '../../frontend/sections/login/signup'
 
 const Page = () => {
