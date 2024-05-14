@@ -1,7 +1,8 @@
 // frontend/pages/login.tsx
-"use client"
 
-import LoginPage from '../../frontend/sections/login/page';
+import SigninForm from '../../frontend/sections/login/login'; 
 
-
-export default LoginPage;
+const Page = () => {
+  return <div><SigninForm /></div>
+}
+export default Page;
