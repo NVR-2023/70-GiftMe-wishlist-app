@@ -6,32 +6,33 @@ import PasswordInvisibleIcon from "../../components/icons/password-invisible-ico
 import PasswordVisibleIcon from "../../components/icons/password-visible-icon";
 import GoogleIcon from "../../components/icons/google-icon";
 import FacebookIcon from "../../components/icons/facebook-icon";
-import { LoginFormProps } from "@/types/types";
 
-
-const SignUpForm: React.FC<LoginFormProps> = ({ email, password }) => {
-  const [formData, setFormData] = useState(new FormData());
+const SignUpForm = () => {
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState("");
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
 
   const handleTogglePasswordVisibility = () => {
     setIsPasswordVisible((current) => !current);
   };
 
-  // new functions
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    formData.set(name, value);
-    setFormData(formData);
-  };
-  
-  const handleSignup = () => {
-    signup(formData);
+    if (name === "email") setEmail(value);
+    if (name === "password") setPassword(value);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    handleSignup(); 
-  }; 
+    
+    // Create a FormData object
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+
+    // Call the login function
+    signup(formData);
+  };
   
   return (
     <div className="text-purple-700">

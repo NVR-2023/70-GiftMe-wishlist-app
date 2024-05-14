@@ -1,5 +1,9 @@
 "use client"; 
 
-import signUpForm from '../../frontend/sections/login/signup'
+import SignUpForm from '../../frontend/sections/login/signup'
 
-export default signUpForm; 
+const Page = () => {
+  return <div><SignUpForm/></div>
+}
+
+export default Page; 

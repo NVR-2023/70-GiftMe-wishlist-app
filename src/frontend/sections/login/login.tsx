@@ -1,45 +1,45 @@
 "use client";
 
-import { emailErrors, passwordErrors } from "../register/sub-components/credentials-errors";
-import { useState, ChangeEvent, FormEvent } from "react";
+import { useState, FormEvent } from "react";
 import { login } from './actions';
 import Link from "next/link";
 import PasswordInvisibleIcon from "../../components/icons/password-invisible-icon";
 import PasswordVisibleIcon from "../../components/icons/password-visible-icon";
 import GoogleIcon from "../../components/icons/google-icon";
 import FacebookIcon from "../../components/icons/facebook-icon";
-import { LoginFormProps } from "@/types/types";
 
-const SigninForm: React.FC<LoginFormProps> = ({ email, password }) => {
-  const [formData, setFormData] = useState(new FormData());
+const SigninForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState(""); 
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false);
   const [credentialsErrors, setCredentialsErrors] = useState({
     email: "",
     password: "",
   });
+
   const handleTogglePasswordVisibility = () => {
     setIsPasswordVisible((current) => !current);
   };
 
-  // new functions
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
-    formData.set(name, value);
-    setFormData(formData);
+    if (name === "email") setEmail(value);
+    if (name === "password") setPassword(value);
   };
-  
-  const handleLogin = () => {
+
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // Form data to be sent
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+    // Call the login function
     login(formData);
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>, handleLogin: () => void) => {
-    event.preventDefault();
-    handleLogin()
-  }
-  
   return (
     <div className="text-purple-700">
-      <form className="flex flex-col space-y-2" onSubmit={(event) => handleSubmit(event, handleLogin)}>
+      <form className="flex flex-col space-y-2" onSubmit={handleSubmit}>
         <div className="font-bold text-3xl mb-7">Login</div>
         <div className="flex flex-col">
           <label htmlFor="email" className="text-sm font-semibold mb-0.5">
@@ -50,8 +50,8 @@ const SigninForm: React.FC<LoginFormProps> = ({ email, password }) => {
             id="email"
             name="email"
             value={email}
-            onChange={handleInputChange}>
-          </input>
+            onChange={handleInputChange}
+          />
           <div
             className={`${credentialsErrors.email ? "visible" : "invisible"
               } h-[.75rem] text-[0.6rem] text-red-500 font-semibold mt-2 mb-4`}>
@@ -61,7 +61,7 @@ const SigninForm: React.FC<LoginFormProps> = ({ email, password }) => {
 
         <div className="flex flex-col">
           <div className="flex justify-between mb-0.5">
-            <label htmlFor="email" className="text-sm font-semibold">
+            <label htmlFor="password" className="text-sm font-semibold">
               Password
             </label>
             <span onClick={handleTogglePasswordVisibility}>
@@ -78,8 +78,8 @@ const SigninForm: React.FC<LoginFormProps> = ({ email, password }) => {
             name="password"
             type={isPasswordVisible ? "text" : "password"}
             value={password}
-            onChange={handleInputChange}>
-          </input>
+            onChange={handleInputChange}
+          />
           <div
             className={`${credentialsErrors.password ? "visible" : "invisible"
               } h-[.75rem] text-[0.6rem] text-red-500 font-semibold mt-2 mb-4`}>
@@ -100,20 +100,20 @@ const SigninForm: React.FC<LoginFormProps> = ({ email, password }) => {
           </div>
         </div>
         <div className="flex pt-8 space-x-4">
-        <button
+          <button
             type="submit"
             className="w-36 h-8 rounded bg-purple-700 text-orange-400 text-sm tracking-wide">
             Login
           </button>
-          <br></br>
+          <br />
           <Link
             href="/signup"
             className="w-24 h-8 flex justify-center items-center rounded border-[1.5px] border-purple-700 text-purple-700 text-sm font-semibold tracking-wide">
             Sign Up
           </Link>
-          <br></br>
+          <br />
           <Link
-            //add password recovery page
+            // add password recovery page
             href="/"
             className="w-24 h-8 flex justify-center items-center rounded border-[1.5px] border-purple-700 text-purple-700 text-sm font-semibold tracking-wide">
             Forgot password
@@ -122,7 +122,7 @@ const SigninForm: React.FC<LoginFormProps> = ({ email, password }) => {
       </form>
     </div>
   );
-}; 
-
+};
 
 export default SigninForm;
+
