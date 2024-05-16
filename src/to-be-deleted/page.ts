@@ -1,8 +1,8 @@
 // File: /Users/enriqueibarra/Desktop/gift-me/gift-me-new/70-GiftMe-wishlist-app/src/app/frontend/sections/login/page.tsx
-import * as entry from '../frontend/sections/login/signup.jsx';
+import * as entry from '../frontend/sections/login/signup.js';
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js';
 
-type TEntry = typeof import('../frontend/sections/login/signup.jsx');
+type TEntry = typeof import('../frontend/sections/login/signup.js');
 
 // Check that the entry is a valid entry
 checkFields<Diff<{
