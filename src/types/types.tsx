@@ -24,4 +24,19 @@ export type scrappedProductDetailsResult = {
   imageUrl?: string
 };
 
+export type UserData = {
+  name: string;
+  surname: string;
+  avatarImage: string;
+  email: string;
+  birthDate: string;
+  primaryAddress: string;
+  secondaryAddress: string;
+}
+
+export type CreateProfileFormProps = {
+  userId: string;
+  userEmail : string;
+}
+
 
