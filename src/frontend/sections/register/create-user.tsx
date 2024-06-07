@@ -3,7 +3,8 @@ import { useState } from 'react';
 import axios from 'axios'; 
 
 // const API_BASE_URL = process.env.NODE_ENV === 'development' ? 'http://localhost:10000' : 'https://giftme-backend-1jl1.onrender.com';
-const API_BASE_URL = 'https://giftme-backend-1jl1.onrender.com';
+// const API_BASE_URL = 'https://giftme-backend-1jl1.onrender.com';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
 
 export default function CreateUserPage() {
   const [userData, setUserData] = useState({
