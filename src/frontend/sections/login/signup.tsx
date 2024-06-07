@@ -43,7 +43,7 @@ const SignUpForm = () => {
             Email
           </label>
           <input
-            className="rounded bg-orange-100 h-8 ps-2 focus:outline-none focus:border-purple-700 focus:ring-purple-700 focus:ring-[1px]"
+            className="rounded bg-orange-100 h-8 ps-2 focus:outline-none focus:border-purple-700 focus:ring-purple-700 focus:ring-[1px] text-black"
             id="email"
             name="email"
             value={email}
