@@ -1,19 +1,23 @@
-import Image from "next/image";
-import { logout } from "../frontend/sections/logout/actions"
-import Link from 'next/link'
+import "../../styles/globals.css"
+import { Inter } from 'next/font/google';
+import { cn } from '@/lib/utils';
+import { Button } from "../components/ui/button"; 
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
 
 export default function Home() {
   return (
-    <main className="bg-green-400 lex min-h-screen flex-col items-center justify-between p-24">
-      <div>Development in new repo initiated</div>
+    <div className={cn(inter.variable, 'font-sans')}>
+      <h2>Gift Me</h2>
       <div>
-        <Link href="/"></Link>
+        <div>
+        </div>
+     <Button>Click me</Button>
       </div>
-      <form action={logout}>
-        <button type="submit">
-        Logout
-        </button>
-      </form>
-    </main>
-  );
+    </div>
+ )
 }

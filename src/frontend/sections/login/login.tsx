@@ -7,6 +7,7 @@ import PasswordInvisibleIcon from "../../components/icons/password-invisible-ico
 import PasswordVisibleIcon from "../../components/icons/password-visible-icon";
 import GoogleIcon from "../../components/icons/google-icon";
 import FacebookIcon from "../../components/icons/facebook-icon";
+import NavigationMenuDemo from "../navbar-homepage/navbar-homepage";
 
 const SigninForm = () => {
   const [email, setEmail] = useState("");
@@ -39,6 +40,9 @@ const SigninForm = () => {
 
   return (
     <div className="text-purple-700">
+      <div>
+          < NavigationMenuDemo/>
+        </div>
       <form className="flex flex-col space-y-2" onSubmit={handleSubmit}>
         <div className="font-bold text-3xl mb-7">Login</div>
         <div className="flex flex-col">
