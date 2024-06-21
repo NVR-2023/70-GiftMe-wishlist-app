@@ -50,7 +50,7 @@ const SigninForm = () => {
             Email
           </label>
           <input
-            className="rounded bg-orange-100 h-8 ps-2 focus:outline-none focus:border-purple-700 focus:ring-purple-700 focus:ring-[1px]"
+            className="rounded text-black bg-orange-100 h-8 ps-2 focus:outline-none focus:border-purple-700 focus:ring-purple-700 focus:ring-[1px]"
             id="email"
             name="email"
             value={email}
@@ -77,7 +77,7 @@ const SigninForm = () => {
             </span>
           </div>
           <input
-            className="rounded bg-orange-100 h-8 ps-2 focus:outline-none focus:border-purple-700 focus:ring-purple-700 focus:ring-[1px]"
+            className="rounded text-black bg-orange-100 h-8 ps-2 focus:outline-none focus:border-purple-700 focus:ring-purple-700 focus:ring-[1px]"
             id="password"
             name="password"
             type={isPasswordVisible ? "text" : "password"}
