@@ -19,6 +19,7 @@ export default async function UserProfilePage () {
     <div>
       <UserProfile userId={userId} userEmail={userEmail} />
       <p>Hello {data.user.email}</p>
+      <p> GiftMe</p>
     </div>
   );
 };
