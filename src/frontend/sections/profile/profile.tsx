@@ -4,7 +4,7 @@ import { useState, FC } from 'react';
 import axios from 'axios';
 import { UserData, CreateProfileFormProps } from '../../../types/types'
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL
+const API_BASE_URL = 'http://localhost:10000'
 
 const UserProfile: FC<CreateProfileFormProps> = ({ userId, userEmail }) => {
 
