@@ -18,8 +18,7 @@ export default function Home() {
         <div></div>
         <Button>Click me</Button>
       </div>
-      <div>{process.env.NEXT_PUBLIC_SUPABASE_URL}</div>
-      <div>{process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}</div>
+      <div>{process.env.NEXT_PUBLIC_DATABASE_URL}</div>
     </div>
   );
 }
