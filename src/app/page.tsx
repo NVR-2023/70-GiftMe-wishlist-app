@@ -10,14 +10,16 @@ const inter = Inter({
 })
 
 export default function Home() {
+
   return (
-    <div className={cn(inter.variable, 'font-sans')}>
+    <div className={cn(inter.variable, "font-sans")}>
       <h2>Gift Me</h2>
       <div>
-        <div>
-        </div>
-     <Button>Click me</Button>
+        <div></div>
+        <Button>Click me</Button>
       </div>
+      <div>{process.env.NEXT_PUBLIC_SUPABASE_URL}</div>
+      <div>{process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY}</div>
     </div>
- )
+  );
 }
